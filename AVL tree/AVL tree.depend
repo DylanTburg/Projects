@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1676585609 source:c:\codeblocks\projects\avl tree\main.c
+	<stdlib.h>
+	<stdio.h>
+
