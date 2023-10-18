@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1697618406 source:c:\codeblocks\projects\arm cortex m4 constant verifier\main.c
+	<stdio.h>
+	<stdlib.h>
+
