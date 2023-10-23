@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//copyright Dylan Thornburg 10/17/2023
 
 int main()
 {
@@ -36,7 +35,7 @@ int num()
                     printf("%s can be used in ARM", a);
                     return 0;
                 }
-    if((a[0]=='f' || a[0] == 'F') && (a[1]=='f' || a[1] == 'F') && (a[2]=='f' || a[2] == 'F') && (a[3]=='f' || a[3] == 'F') && (a[4]=='f' || a[4] == 'F') && (a[5]=='f' || a[5] == 'F') && (a[6]=='f' || a[6] == 'F') && (a[7]=='f' || a[7] == 'F')) //Determines if number is FFFFFFFF which is allowed
+    if((a[0]== a[2] && a[0] == a[4] && a[0] == a[6]) && (a[1] == a[3] && a[1] == a[5] && a[1] == a[7])) //Determines if all four bytes are the same
     {
         printf("%s can be used in ARM", a);
         return 0;
