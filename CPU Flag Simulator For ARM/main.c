@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-//copyright Dylan Thornburg 10/17/2023
 
 int main()
 {
@@ -22,33 +21,23 @@ int main()
         if (k == '-')
         {
             result = (x-y);
-            c=1;
-            if ((y > x) && x >= 0)
-            {
-                c=0;
-            }
-            if ((x >= 0x80000000 && x <=0) || (y >= 0x80000000 && y <=0) && result > 0)
-            {
-                v=1;
-            }
+            int mask = 0x80000000;
+            _Bool maskx = x & mask;
+            _Bool masky = y & mask;
+            _Bool maskr = result & mask;
+            c=!((masky & maskr) | (!maskx & maskr) | (!maskx & masky));
+            v=((!maskr & maskx & !masky) | (!maskx & maskr & masky));
         }
 
         if (k == '+')
         {
             result = x+y;
-
-            if (((x <= 0x7fffffff && x >=0) && (y <= 0x7fffffff && y >=0)) && result < 0)
-            {
-                v=1;
-            }
-            if ((x < 0 || y < 0) && (result >= 0))
-            {
-                c=1;
-            }
-            if ((x < 0) && (y < 0) && (result > 0))
-            {
-                c=1;
-            }
+            int mask = 0x80000000;
+            _Bool maskx = x & mask;
+            _Bool masky = y & mask;
+            _Bool maskr = result & mask;
+            c=((masky & !maskr) | (maskx & !maskr) | (maskx & masky));
+            v=((!maskr & maskx & masky) | (!maskx & maskr & !masky));
         }
         if (result == 0)
         {
