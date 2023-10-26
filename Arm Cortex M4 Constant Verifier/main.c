@@ -1,16 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-    char cond = 'y';
-    while (cond == 'y')
-    {
-        num();
-        printf("\nWould you like to test a different constant? Enter y if yes.");
-        scanf(" %c", &cond);
-    }
-}
 int num()
 {
     int i = 0;
@@ -175,4 +165,13 @@ int num()
     printf("%s can be used in ARM", a);
     return 0;
 }
-
+int main()
+{
+    char cond = 'y';
+    while (cond == 'y')
+    {
+        num();
+        printf("\nWould you like to test a different constant? Enter y if yes.");
+        scanf(" %c", &cond);
+    }
+}
